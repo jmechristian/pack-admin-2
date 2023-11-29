@@ -59,14 +59,14 @@ export default function Home() {
       ></div>
       <div className='opacity-0 w-full h-full bg-gradient-to-t from-black/90 fixed inset-0 z-[15] computer-backdrop'></div>
       <div className='w-full mx-auto absolute -bottom-full z-20 computer scale-90'>
-        <div className='w-full max-w-[50%] mx-auto relative'>
+        <div className='w-full max-w-4xl mx-auto relative'>
           <Image
             src={'https://packschool.s3.amazonaws.com/pack-admin-computer.png'}
             alt='pack admin computer'
             width={1120}
             height={957}
           />
-          <div className='w-1/2 h-40 absolute z-30 top-20 -translate-x-1/2 left-1/2'>
+          <div className='w-1/2 h-40 absolute z-30 top-24 -translate-x-1/2 left-1/2'>
             <div className='flex flex-col gap-9 pl-3'>
               <div
                 className={`${pressStart.className} text-xl text-green-500 text`}
