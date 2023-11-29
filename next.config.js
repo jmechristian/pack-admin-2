@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    remotePatterns: [{ hostname: 'packschool.s3.amazonaws.com' }],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
