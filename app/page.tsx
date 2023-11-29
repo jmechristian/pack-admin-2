@@ -97,7 +97,7 @@ export default function Home() {
                 <div
                   className={`${pressStart.className} text-xs md:text-lg xl:text-lg text-green-500 text-3 opacity-0`}
                 >
-                  &gt;PSCHOOL DATA
+                  &gt;PSCHOOL DATA_
                 </div>
               </div>
               <div
