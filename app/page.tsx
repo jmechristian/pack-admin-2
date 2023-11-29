@@ -1,16 +1,24 @@
 'use client';
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 import { Press_Start_2P } from 'next/font/google';
 import useSound from 'use-sound';
+// import factoryShort from '@/public/sounds/factory_short.mp3';
 
 gsap.registerPlugin(TextPlugin);
 const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin'] });
 
 export default function Home() {
+  const [isHovered, setIsHovered] = useState(false);
   const sceneRef = useRef(null);
+
+  const [play] = useSound('/sounds/factory_short.mp3');
+
+  useEffect(() => {
+    play();
+  }, [isHovered]);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -33,14 +41,14 @@ export default function Home() {
         ease: 'none',
         delay: 1.25,
       });
-      gsap.to('.text-1', { opacity: 1, duration: 0.05, delay: 2.25 });
-      gsap.to('.text-2', { opacity: 1, duration: 0.05, delay: 2.5 });
-      gsap.to('.text-3', { opacity: 1, duration: 0.05, delay: 2.75 });
+      gsap.to('.text-1', { opacity: 1, duration: 0.05, delay: 2.5 });
+      gsap.to('.text-2', { opacity: 1, duration: 0.05, delay: 2.75 });
+      gsap.to('.text-3', { opacity: 1, duration: 0.05, delay: 3 });
       gsap.to('.text-4', {
         duration: 0.5,
         text: '*****************',
         ease: 'none',
-        delay: 2.75,
+        delay: 3.25,
       });
     }, sceneRef);
 
@@ -58,9 +66,12 @@ export default function Home() {
           backgroundImage: `url('https://packschool.s3.amazonaws.com/admin-back-main.png')`,
         }}
       ></div>
-      <div className='opacity-0 w-full h-full bg-gradient-to-t from-black/90 fixed inset-0 z-[15] computer-backdrop'></div>
-      <div className='w-full mx-auto absolute -bottom-full z-20 computer scale-90'>
-        <div className='w-full max-w-4xl lg:max-w-2xl mx-auto relative mb-8'>
+      <div className='opacity-0 w-full h-full bg-gradient-to-t from-black fixed inset-0 z-[15] computer-backdrop'></div>
+      <div
+        className='w-full mx-auto absolute -bottom-full z-20 computer scale-90'
+        onMouseEnter={() => setIsHovered(true)}
+      >
+        <div className='w-full max-w-4xl lg:max-w-2xl xl:max-w-3xl mx-auto relative mb-8'>
           <Image
             src={'https://packschool.s3.amazonaws.com/pack-admin-computer.png'}
             alt='pack admin computer'
