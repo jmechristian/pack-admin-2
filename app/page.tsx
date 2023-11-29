@@ -78,7 +78,7 @@ export default function Home() {
             width={1120}
             height={957}
           />
-          <div className='w-1/2 h-40 absolute z-30 top-9 md:top-20 lg:top-16 -translate-x-1/2 left-1/2'>
+          <div className='w-1/2 h-40 absolute z-30 top-9 md:top-20 lg:top-20 -translate-x-1/2 left-1/2'>
             <div className='flex flex-col gap-3 xl:gap-9 pl-3'>
               <div
                 className={`${pressStart.className} text-xs md:text-lg xl:text-xl text-green-500 text`}
