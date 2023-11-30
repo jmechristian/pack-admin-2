@@ -20,11 +20,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body>
-          <TransitionWrapper>
-            <div className='min-h-screen min-w-screen w-full h-full flex items-center justify-center'>
-              {children}
-            </div>
-          </TransitionWrapper>
+          {/* <TransitionWrapper> */}
+          <div className='min-h-screen min-w-screen w-full h-full flex items-center justify-center'>
+            {children}
+          </div>
+          {/* </TransitionWrapper> */}
         </body>
       </html>
     </ClerkProvider>
