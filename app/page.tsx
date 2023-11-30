@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 import { Press_Start_2P } from 'next/font/google';
 import useSound from 'use-sound';
+import { useRouter } from 'next/navigation';
 // import factoryShort from '@/public/sounds/factory_short.mp3';
 
 gsap.registerPlugin(TextPlugin);
@@ -13,12 +14,13 @@ const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin'] });
 export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
   const sceneRef = useRef(null);
+  const router = useRouter();
 
-  const [play] = useSound('/sounds/factory_short.mp3');
+  // const [play] = useSound('/sounds/factory_short.mp3');
 
-  useEffect(() => {
-    play();
-  }, [isHovered]);
+  // useEffect(() => {
+  //   play();
+  // }, [isHovered]);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -66,7 +68,7 @@ export default function Home() {
           backgroundImage: `url('https://packschool.s3.amazonaws.com/admin-back-main.png')`,
         }}
       ></div>
-      <div className='opacity-0 w-full h-full bg-gradient-to-t from-black fixed inset-0 z-[15] computer-backdrop'></div>
+      <div className='opacity-0 w-full h-full bg-gradient-to-t from-black via-black/70 fixed inset-0 z-[15] computer-backdrop'></div>
       <div
         className='w-full mx-auto absolute -bottom-full z-20 computer scale-90'
         onMouseEnter={() => setIsHovered(true)}
@@ -78,7 +80,10 @@ export default function Home() {
             width={1120}
             height={957}
           />
-          <div className='w-1/2 h-40 absolute z-30 top-9 md:top-20 lg:top-20 -translate-x-1/2 left-1/2'>
+          <div
+            className='w-1/2 h-40 absolute z-30 top-9 md:top-20 lg:top-20 -translate-x-1/2 left-1/2'
+            onClick={() => router.push('/dashboard')}
+          >
             <div className='flex flex-col gap-3 xl:gap-9 pl-3'>
               <div
                 className={`${pressStart.className} text-xs md:text-lg xl:text-xl text-green-500 text`}
